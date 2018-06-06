@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from "./app.vue"
-import "./assets/css/test.css"
+//import "./assets/css/test.css"
 import "./assets/css/test-stylus.styl"
 import "./assets/images/bg.jpeg"
 const root = document.createElement('div')
