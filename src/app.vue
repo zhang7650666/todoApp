@@ -23,7 +23,7 @@ export default {
     }
 }
 </script>
-<style  scoped>
+<style scoped>
 #app{
     position: absolute;
     left: 0;
@@ -40,9 +40,7 @@ export default {
     background-color: #999;
     opacity: .9;
     z-index: -1;
-}
-           
-        
+}      
 </style>
 
 
