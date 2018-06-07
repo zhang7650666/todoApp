@@ -1,23 +1,32 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const isDev = process.env.NOOD_ENV == "development"
+const isDev = process.env.NOOD_ENV == 'development'
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
 const config = {
-    target: "web",
-    entry: './src/index.js',
+    target: 'web',
+    entry: './src/main.js',
     output: {
-        filename: "bundle.js",
+        filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
+    },
+    resolve: {
+        alias: {
+            '@': resolve('src')
+        }
     },
     module: {
         rules: [{
                 test: /\.vue$/,
-                loader: "vue-loader"
+                loader: 'vue-loader'
             },
             {
                 test: /\.jsx$/,
-                loader:'babel-loader'
+                loader: 'babel-loader'
             },
             {
                 test: /\.css$/,
@@ -33,9 +42,9 @@ const config = {
                     'vue-style-loader',
                     'css-loader',
                     {
-                        loader:"postcss-loader",
-                        options:{
-                            sourceMap:true
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true
                         }
                     },
                     'stylus-loader'
@@ -50,7 +59,6 @@ const config = {
                             limit: 1024,
                             name: '[name].[ext]'
                         }
-
 
                     }
 
@@ -70,18 +78,18 @@ const config = {
 }
 if (isDev) {
     config.devtool = '#cheap-module-eval-source-map',
-    config.devServer = {
-        port: 8000,
-        host: "localhost",
-        overlay: {
-            errors: true
-        },
-        open: false,
-        hot: true //热加载
-    }
+        config.devServer = {
+            port: 8000,
+            host: 'localhost',
+            overlay: {
+                errors: true
+            },
+            open: false,
+            hot: true // 热加载
+        }
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     )
 }
-module.exports = config;
+module.exports = config
