@@ -7,20 +7,20 @@
     </div> 
 </template>
 <script>
-import Header from "./components/Header.vue"
-import Footer from "./assets/js/footer.jsx"
-import Todo from "./components/Todo.vue"
+import Header from './components/Header.vue'
+import Footer from './assets/js/footer.jsx'
+import Todo from './components/Todo.vue'
 export default {
-    data(){
-        return {
-            msg:"hello world"
-        }
-    },
-    components:{
-        'v-header':Header,
-        'v-footer':Footer,
-        'v-todo':Todo
+  data () {
+    return {
+      msg: 'hello world'
     }
+  },
+  components: {
+    'v-header': Header,
+    'v-footer': Footer,
+    'v-todo': Todo
+  }
 }
 </script>
 <style scoped>

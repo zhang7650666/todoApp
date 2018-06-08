@@ -7,7 +7,7 @@
 export default {
   data () {
     return {
-    };
+    }
   },
 
   components: {},
@@ -18,7 +18,6 @@ export default {
 
   methods: {}
 }
-
 </script>
 <style scoped>
 </style>

@@ -11,36 +11,35 @@
 
 <script>
 export default {
-    props:{
-        filter:{
-            type:String,
-            required:true
-        },
-        todos:{
-            type:Array,
-            required:true
-        }
+  props: {
+    filter: {
+      type: String,
+      required: true
     },
-    data () {
-        return {
-            states:[ "all",'active','completed']
-        };
-    },
-    computed:{
-        unCheckedLength(){                        
-            return this.todos.filter(item => !item.completed).length
-        }
-    },
-    methods: {
-        toggleFilter(state){
-            this.$emit('checkStats',state)
-        },
-        clearAllCompleted(){
-            this.$emit("clearAllCompleted")
-        }
+    todos: {
+      type: Array,
+      required: true
     }
+  },
+  data () {
+    return {
+      states: [ 'all', 'active', 'completed' ]
+    }
+  },
+  computed: {
+    unCheckedLength () {
+      return this.todos.filter(item => !item.completed).length
+    }
+  },
+  methods: {
+    toggleFilter (state) {
+      this.$emit('checkStats', state)
+    },
+    clearAllCompleted () {
+      this.$emit('clearAllCompleted')
+    }
+  }
 }
-
 </script>
 <style scoped>
 .helper{

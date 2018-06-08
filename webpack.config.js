@@ -29,7 +29,7 @@ const config = {
                 test: /\.jsx$/,
                 loader: 'babel-loader'
             },
-            
+
             {
                 test: /\.styl$/,
                 use: [
@@ -80,57 +80,58 @@ if (isDev) {
         ]
     })
     config.devtool = '#cheap-module-eval-source-map',
-    config.devServer = {
-        port: 8000,
-        host: 'localhost',
-        overlay: {
-            errors: true
-        },
-        open: false,
-        hot: true // 热加载
-    }
+        config.devServer = {
+            port: 8000,
+            host: 'localhost',
+            overlay: {
+                errors: true
+            },
+            open: false,
+            hot: true // 热加载
+        }
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     )
-}else{
+} else {
     config.entry = {
-        app:path.join(__dirname,'src/main.js'),
-        vendor:['vue']
+        app: path.join(__dirname, 'src/main.js'),
+        vendor: ['vue']
     }
     config.output.filename = '[name].[chunkhash:8].js'
     config.module.rules.push({
         test: /\.css$/,
-        use:ExtractPlugin.extract({
-            fallback:"style-loader",
-            use:[
+        use: ExtractPlugin.extract({
+            fallback: "style-loader",
+            use: [
                 'css-loader',
                 'postcss-loader'
             ]
         })
     })
     config.plugins.push(
-        new ExtractPlugin('style.[chunkhash:8].css'),
+        new ExtractPlugin('style.[chunkhash:8].css')
     )
     config.optimization = {
         splitChunks: {
-          cacheGroups: {
-            commons: {
-              chunks: 'initial',
-              minChunks: 2, maxInitialRequests: 5,
-              minSize: 0
-            },
-            vendor: {
-              test: /node_modules/,
-              chunks: 'initial',
-              name: 'vendor',
-              priority: 10,
-              enforce: true
+            cacheGroups: {
+                commons: {
+                    chunks: 'initial',
+                    minChunks: 2,
+                    maxInitialRequests: 5,
+                    minSize: 0
+                },
+                vendor: {
+                    test: /node_modules/,
+                    chunks: 'initial',
+                    name: 'vendor',
+                    priority: 10,
+                    enforce: true
+                }
             }
-          }
         },
         runtimeChunk: true
-      }
-    
+    }
+
 }
 module.exports = config

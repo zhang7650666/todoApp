@@ -15,55 +15,54 @@
 </template>
 
 <script>
-import Item from "./Item.vue"
-import Tabs from "./Tabs.vue"
-let id = 0;
+import Item from './Item.vue'
+import Tabs from './Tabs.vue'
+let id = 0
 export default {
   data () {
     return {
-      todos:[],
-      filter:"all",
-      val:"",
-    }; 
+      todos: [],
+      filter: 'all',
+      val: ''
+    }
   },
   components: {
-    'v-item':Item,
-     'v-tabs':Tabs
+    'v-item': Item,
+    'v-tabs': Tabs
   },
-  computed:{
-    filteredTodos(){
-      if(this.filter == "all"){
-        return this.todos;
+  computed: {
+    filteredTodos () {
+      if (this.filter === 'all') {
+        return this.todos
       };
-      let completed = this.filter === "completed";
-      return this.todos.filter(todo => completed ===todo.completed)
+      let completed = this.filter === 'completed'
+      return this.todos.filter(todo => completed === todo.completed)
     }
   },
   methods: {
-      addTodo(e){
-          this.todos.unshift({
-            id:id++,
-            content:this.val.trim(),
-            completed:false
-          });
-          this.val = ''
-      },
-      //删除一条数据
-      deleteTodo(id){
-        let index = this.todos.findIndex(item => item.id === id);
-        this.todos.splice(index,1)
-      },
-      //更新选中状态
-      amendStats(stats){
-        this.filter = stats
-      },
-      //清楚所有选中的数据u
-      clearAllChecked(){
-        this.todos =  this.todos.filter(todo => !todo.completed)  
-      }
+    addTodo (e) {
+      this.todos.unshift({
+        id: id++,
+        content: this.val.trim(),
+        completed: false
+      })
+      this.val = ''
+    },
+    // 删除一条数据
+    deleteTodo (id) {
+      let index = this.todos.findIndex(item => item.id === id)
+      this.todos.splice(index, 1)
+    },
+    // 更新选中状态
+    amendStats (stats) {
+      this.filter = stats
+    },
+    // 清楚所有选中的数据u
+    clearAllChecked () {
+      this.todos = this.todos.filter(todo => !todo.completed)
+    }
   }
 }
-
 </script>
 <style scoped>
 .real-app{
