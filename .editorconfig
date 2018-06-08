@@ -1,10 +1,12 @@
-//每一个编辑器对代码的编程规范都是不一样，有了这个配置可以所有的编辑器对这个项目使用相同的编程规范
+
 root = true
 
 [*]
 charset = utf-8
-end_of_line = if
-indent_size = 4 //tab  代码缩进空格
+end_of_line = lf
+indent_size = 4
 indent_style = space
-insert_final_newlint = true // 保存文件之后  最后一行保存空行
-trim_trailing_whitespace = true // 一行代码的后面多余的空格去除
+insert_final_newline = true
+trim_trailing_whitespace = true
+[*.md]
+trim_trailing_whitespace = false

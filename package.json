@@ -11,6 +11,8 @@
         "lint": "eslint --ext .js --ext .jsx --ext .vue src/",
         "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/",
         "precommit": "npm run lint-fix",
+
+        "demo-dev": "cross-env NOOD_ENV=development webpack-dev-server --config build/webpack.config.practice.js --mode development",
         "dev": "cross-env NOOD_ENV=development webpack-dev-server --config build/webpack.config.client.js --mode development"
     },
     "keywords": [],

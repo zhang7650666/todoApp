@@ -42,7 +42,7 @@ if (isDev) { // 开发环境
         devServer, // 尚明定义的derServer常量
         plugins: defaultPlugins.concat([ // 将生产环境开发环境都会用到的插件 与开发环境用到的插件合并
             new webpack.HotModuleReplacementPlugin(),
-            new webpack.NoEmitOnErrorsPlugin()
+            // new webpack.NoEmitOnErrorsPlugin()
         ])
 
     })
