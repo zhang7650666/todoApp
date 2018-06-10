@@ -20,7 +20,7 @@ import Item from '../components/Item.vue'
 import Tabs from '../components/Tabs.vue'
 let id = 0
 export default {
-  props:{
+  props: {
     id: {
       type: String
     }
@@ -80,17 +80,17 @@ export default {
       // console.log(vm.id)
     })
   },
-  beforeRouteUpdate(to, from, next) {
+  beforeRouteUpdate (to, from, next) {
     // 有数据更新时才会触发
    //  console.log(6)
     next()
   },
-  beforeRouteLeave(to, from, next) {
+  beforeRouteLeave (to, from, next) {
     // console.log(7)
     // 作用   当你要离开这个界面时，可以给你做一个提醒
-    //if(window.confirm('你确定要离开这个界面吗')){
+    // if(window.confirm('你确定要离开这个界面吗')){
       next()
-    //}
+    // }
   }
 
 }

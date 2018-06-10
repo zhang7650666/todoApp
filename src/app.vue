@@ -37,7 +37,7 @@ export default {
       text1: state => state.a.text1,
       text2: state => state.b.text1
     })
-   
+
     // count () {
     //   return this.$store.state.count
     // },
@@ -54,7 +54,7 @@ export default {
        fullName: 'fullName',
        textPlus: 'a/textPlus'
      }),
-     ...mapMutations(['updateCount', 'a/setUpdate','b/setUpdate']),
+     ...mapMutations(['updateCount', 'a/setUpdate', 'b/setUpdate']),
      // ...mapActions(['updateCountAsync']),
     ...mapActions({
       updateCountAsync: 'updateCountAsync',

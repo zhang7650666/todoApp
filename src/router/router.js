@@ -27,5 +27,5 @@ export default () => {
         // },
         fallback: true, // 路由跳转 一些浏览器如果不支持的话，vue 会自动帮我们转成hash的形式
         routes
-    }) 
+    })
 }

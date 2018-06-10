@@ -77,7 +77,7 @@ export default () => {
                         // 我们可以直接commit此模块的一些方法
                         commit('updateCount', 10, {root: true})
                     }
-                    
+
                 }
 
             },
