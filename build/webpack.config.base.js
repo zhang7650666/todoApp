@@ -8,7 +8,8 @@ const config = {
     entry: path.join(__dirname, '../src/main.js'), // 入口文件  可以这顶一个，也可以设定多个
     output: {
         filename: 'bundle.[hash:8].js', // 输出文件名
-        path: path.join(__dirname, './../dist') // 打包到那个文件夹下面
+        path: path.join(__dirname, './../dist'), // 打包到那个文件夹下面
+        publicPath: '/public/'
     },
     module: {
         rules: [
