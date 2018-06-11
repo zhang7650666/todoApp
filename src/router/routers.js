@@ -1,7 +1,6 @@
 // import Todo from '../views/Todo.vue'
 // import Login from '../views/Login.vue'
-export default [
-    {
+export default [{
         path: '*',
         redirext: '/app'
     },
@@ -15,7 +14,8 @@ export default [
         // props: (route) => ({id: route.query.b}),
         name: 'todo', // 路由的命名， 他的作用就是 我们可以根据 名字来进行路由的跳转
         // component: Todo,
-        component: () => import('../views/Todo.vue'),
+        component: () =>
+            import('../views/Todo.vue'),
         // 命名视图的应用
         // components: {
         //     default: Todo, // 如果没有定义名字
@@ -42,6 +42,7 @@ export default [
     {
         path: '/login',
         name: 'login',
-        component: () => import('../views/Login.vue')
+        component: () =>
+            import('../views/Login.vue')
     }
 ]
