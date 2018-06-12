@@ -15,7 +15,7 @@ export default [{
         name: 'todo', // 路由的命名， 他的作用就是 我们可以根据 名字来进行路由的跳转
         // component: Todo,
         component: () =>
-            import('../views/Todo.vue'),
+            import('../views/Helper.vue'),
         // 命名视图的应用
         // components: {
         //     default: Todo, // 如果没有定义名字

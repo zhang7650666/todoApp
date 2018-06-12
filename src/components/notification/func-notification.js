@@ -36,7 +36,7 @@ export default {
         },
         afterEnter () {
             console.log(1)
-            this.height = this.$el.verticalOffset
+            this.height = this.$el.offsetHeight
         }
     },
     beforeDestroy () {

@@ -1,6 +1,21 @@
 <!-- todo组件 -->
 <template>
   <section class="real-app">
+    <div class="tab-container">
+       <tabs :value="tabValue" @change="handleChangeTab">
+            <tab index="1" label="tab1" >
+                <span>tab content 1</span>
+            </tab>
+            <tab index="2" >
+              <span slot="label" style="color:red">tab2</span>
+              <span>tab content 2</span>
+            </tab>
+            <tab index="3" label="tab3">
+              <span>tab content 3</span>
+            </tab>
+      </tabs>
+    </div>
+     
       <input
         type="text"
         class="add-input"
@@ -10,14 +25,14 @@
         @keyup.enter="addTodo"
       >
       <v-item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @del="deleteTodo"></v-item>
-      <v-tabs :filter="filter" :todos="todos" @checkStats="amendStats" @clearAllCompleted="clearAllChecked"></v-tabs>
+      <v-helper :filter="filter" :todos="todos" @checkStats="amendStats" @clearAllCompleted="clearAllChecked"></v-helper>
       <!-- <router-view></router-view> -->
   </section>
 </template>
 
 <script>
 import Item from '../components/Item.vue'
-import Tabs from '../components/Tabs.vue'
+import Helper from '../components/Tabs.vue'
 let id = 0
 export default {
     metaInfo: {
@@ -32,12 +47,13 @@ export default {
     return {
       todos: [],
       filter: 'all',
-      val: ''
+      val: '',
+      tabValue: '1'
     }
   },
   components: {
     'v-item': Item,
-    'v-tabs': Tabs
+    'v-helper': Helper
   },
   computed: {
     filteredTodos () {
@@ -48,11 +64,11 @@ export default {
       return this.todos.filter(todo => completed === todo.completed)
     }
   },
-  mounted () {
+  // mounted () {
     // 相同路径显示同一个组件的情况下， 第二次 mounted 是不会触发的   这是我们可以使用beforeRouteUpdate钩子
    //  console.log(this.$route)
    //  console.log(this.id)
-  },
+  // },
   methods: {
     addTodo (e) {
       this.todos.unshift({
@@ -74,6 +90,10 @@ export default {
     // 清楚所有选中的数据u
     clearAllChecked () {
       this.todos = this.todos.filter(todo => !todo.completed)
+    },
+    // tabs 切换
+    handleChangeTab (value) {
+      this.tabValue = value
     }
   },
   beforeRouteEnter (to, from, next) {

@@ -1,7 +1,12 @@
 <!-- Notification 组件 -->
 <template>
 <transition name="fade" @after-leave="afterLeave" @after-enter="afterEnter">
-    <div class="notification" :style="style" v-show="visible">
+    <div class="notification" 
+        :style="style" 
+        v-show="visible"
+        @mouseenter="clearTimer"
+        @mouseleave="createTimer"
+        >
       <span class="content">{{content}}</span>
       <a class="btn" @click="handleClose">{{btn || '关闭'}}</a>
   </div>
@@ -43,6 +48,13 @@ export default {
       },
       // 动画进入的时候
       afterEnter () {
+          // 这个函数可以什么都不做，但是要有这个函数(不然的话在模板里面会报错的)
+      },
+      // 鼠标划入noticy显示  离开后3秒小时
+      clearTimer () {
+
+      },
+      createTimer () {
 
       }
   }

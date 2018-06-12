@@ -32,7 +32,7 @@ const notify = (options) => {
         // propsData: options // 继承的组件 传值  用propsData   传过去的值，会覆盖掉原有的值
         // propsData: {...reset },
         data: {
-            autoClose: autoClose === undefined ? 10000 : autoClose
+            autoClose: autoClose === undefined ? 3000 : autoClose
         }
     })
     const id = `notification_${seet++}`
