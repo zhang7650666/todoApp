@@ -9,7 +9,7 @@ const config = {
     output: {
         filename: 'bundle.[hash:8].js', // 输出文件名
         path: path.join(__dirname, './../dist'), // 打包到那个文件夹下面
-        publicPath: '/public/'
+        publicPath: 'http://127.0.0.1:8000/public/'
     },
     module: {
         rules: [

@@ -4,9 +4,11 @@ import Vuex from 'vuex'
 import App from './app.vue'
 import createStore from './store/store.js'
 import createRouter from './router/router.js'
+import Meta from 'vue-meta'
 import './assets/css/reset.css'
 Vue.use(VueRouter)
 Vue.use(Vuex)
+Vue.use(Meta)
 export default () => {
     const router = createRouter()
     const store = createStore()

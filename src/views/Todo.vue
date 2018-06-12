@@ -1,7 +1,7 @@
 <!-- todo组件 -->
 <template>
   <section class="real-app">
-      <input 
+      <input
         type="text"
         class="add-input"
         autofocus="autofocus"
@@ -20,6 +20,9 @@ import Item from '../components/Item.vue'
 import Tabs from '../components/Tabs.vue'
 let id = 0
 export default {
+    metaInfo: {
+        title: 'todo页面'
+    },
   props: {
     id: {
       type: String
@@ -125,5 +128,5 @@ export default {
   background-color: #fff;
   padding: 0 15px;
 }
-  
+
 </style>

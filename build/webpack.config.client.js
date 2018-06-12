@@ -1,6 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const VueClientPlugin = require('vue-server-renderder/client-plugin')
+const VueClientPlugin = require('vue-server-renderer/client-plugin')
 const isDev = process.env.NOOD_ENV === 'development' // 判断是生产环境还是调试环境标识
 const HTMLPlugin = require('html-webpack-plugin') // 插件处理
 const webpack = require('webpack')
@@ -25,6 +25,7 @@ const devServer = { // 默认服务配置  提取出来的目的是便于查找�
     overlay: { // shell  中显示报错信息
         errors: true
     },
+    headers: { 'Access-Control-Allow-Origin': '*' }, // 设置允许跨域
     historyApiFallback: { // 当我们在history 模式下的时候，打开页面回事 空白页 （是因为我们打开页面 向服务端请求，但是，我们的路由是前端路由，后端根本就不认识造成的，所以会是404）
         index: '/public/index.html'
     },
@@ -57,6 +58,7 @@ if (isDev) { // 开发环境
     config = merge(baseConfig, {
         entry: {
             app: path.join(__dirname, '../src/main.js'), // 入口文件
+            // app: path.join(__dirname, '../src/src-entry.js'), // 入口文件
             vendor: ['vue'], // 将一些框架插件的文件打包到一起
         },
         output: {
