@@ -1,4 +1,5 @@
 <script>
+import TabContainer from './Tab-container.vue'
 export default {
   name: 'tabs',
   // provide () {
@@ -18,17 +19,12 @@ export default {
     }
   },
   render () {
-    const contents = this.panes.map(pane => {
-      return pane.active ? pane.$slots.default : null
-    })
     return (
       <div class="tabs">
         <ul class="tabs-header">
           {this.$slots.default}
         </ul>
-        <div class="tab-content">
-          {contents}
-        </div>
+        <v-tabcontainer panes={this.panes}></v-tabcontainer>
       </div>
     )
   },
@@ -36,6 +32,9 @@ export default {
     onChange (index) {
       this.$emit('change', index)
     }
+  },
+  components:{
+      'v-tabcontainer':TabContainer
   }
 
 }
@@ -48,6 +47,6 @@ export default {
   padding: 0;
   border-bottom: 2px solid #ededed;
 }
- 
+
 </style>
 

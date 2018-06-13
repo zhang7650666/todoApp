@@ -30,7 +30,7 @@ const notify = (options) => {
     } = options
     const instance = new NotificationConstructor({
         // propsData: options // 继承的组件 传值  用propsData   传过去的值，会覆盖掉原有的值
-        // propsData: {...reset },
+        propsData: {...reset },
         data: {
             autoClose: autoClose === undefined ? 3000 : autoClose
         }

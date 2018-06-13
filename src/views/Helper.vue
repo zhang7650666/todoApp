@@ -2,20 +2,20 @@
 <template>
   <section class="real-app">
     <div class="tab-container">
-       <tabs :value="tabValue" @change="handleChangeTab">
-            <tab index="1" label="tab1" >
-                <span>tab content 1</span>
+       <tabs :value="filter" @change="handleChangeTab">
+            <tab   v-for="(item, index) in states" :key="item" :index="item" :label="item">
+                <!-- <span>tab content 1</span> -->
             </tab>
-            <tab index="2" >
+            <!-- <tab index="2" >
               <span slot="label" style="color:red">tab2</span>
               <span>tab content 2</span>
             </tab>
             <tab index="3" label="tab3">
               <span>tab content 3</span>
-            </tab>
+            </tab> -->
       </tabs>
     </div>
-     
+
       <input
         type="text"
         class="add-input"
@@ -25,7 +25,7 @@
         @keyup.enter="addTodo"
       >
       <v-item v-for="todo in filteredTodos" :key="todo.id" :todo="todo" @del="deleteTodo"></v-item>
-      <v-helper :filter="filter" :todos="todos" @checkStats="amendStats" @clearAllCompleted="clearAllChecked"></v-helper>
+      <v-helper :filter="filter" :todos="todos" @clearAllCompleted="clearAllChecked"></v-helper>
       <!-- <router-view></router-view> -->
   </section>
 </template>
@@ -48,7 +48,7 @@ export default {
       todos: [],
       filter: 'all',
       val: '',
-      tabValue: '1'
+      states: [ 'all', 'active', 'completed' ]
     }
   },
   components: {
@@ -84,16 +84,16 @@ export default {
       this.todos.splice(index, 1)
     },
     // 更新选中状态
-    amendStats (stats) {
-      this.filter = stats
-    },
+    // amendStats (stats) {
+    //   this.filter = stats
+    // },
     // 清楚所有选中的数据u
     clearAllChecked () {
       this.todos = this.todos.filter(todo => !todo.completed)
     },
     // tabs 切换
     handleChangeTab (value) {
-      this.tabValue = value
+      this.filter = value
     }
   },
   beforeRouteEnter (to, from, next) {

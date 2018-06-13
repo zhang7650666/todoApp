@@ -2,9 +2,9 @@
 <template>
   <div class="helper">
       <span class="left">{{unCheckedLength}} items left</span>
-      <span class="tabs" v-for="(item, index) in states"  @click="toggleFilter(item)">
+      <!-- <span class="tabs" v-for="(item, index) in states"  @click="toggleFilter(item)">
           <span :class="[item, filter === item ? 'actived':'']">{{item}}</span>
-      </span>
+      </span> -->
       <span class="clear" @click="clearAllCompleted">Clear Completed</span>
   </div>
 </template>
@@ -32,9 +32,9 @@ export default {
     }
   },
   methods: {
-    toggleFilter (state) {
-      this.$emit('checkStats', state)
-    },
+    // toggleFilter (state) {
+    //   this.$emit('checkStats', state)
+    // },
     clearAllCompleted () {
       this.$emit('clearAllCompleted')
     }
