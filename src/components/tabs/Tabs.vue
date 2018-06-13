@@ -33,8 +33,8 @@ export default {
       this.$emit('change', index)
     }
   },
-  components:{
-      'v-tabcontainer':TabContainer
+  components: {
+      'v-tabcontainer': TabContainer
   }
 
 }
